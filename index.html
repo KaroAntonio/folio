@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+<div class="overlay hover-listener">
+<ul id="root">
+<li><div id='name'>KARO</div>
+    <ul class="sub-menu">
+        <li><div>MADE</div>
+            <ul class="sub-menu">
+                <li><div id='pretty_button' onclick="toggle_display('#pretty')">PRETTY&nbspSOUNDS</div></li>
+                <li><div id='poetry_button' onclick="toggle_display('#poetry')">POETRY</div></li>
+                <li><div id='wrdcvlt_button' onclick="toggle_display('#wrdcvlt')">WRDCVLT</div></li>
+                <li><div id='cities_button' onclick="toggle_display('#cities')">CITIES</div></li>
+            </ul>
+        </li>
+        <li><div>WANTS</div>
+            <ul class="sub-menu">
+                <li><div id='contact_button' onclick="toggle_display('#contact')">2TALK2U</div></li>
+            </ul>
+        </li>
+        <li><div>ON</div>
+            <ul class="sub-menu">
+                <li><div id='github'><a href='https://github.com/KaroAntonio'><img id='github_icon' src='assets/github_icon.png' width='30px'></a></div></li>
+                    <li><div id='tumblr'><a href='http://karoandme.tumblr.com'><img id='tumblr_icon' src='assets/tumblr_icon.png' width='26px'></a></div></li>
+            </ul>
+        </li>
+    </ul>
+</li>
+<li><div id='choice_1'>LIVES</div>
+<li><div id='choice_2'>HERE</div>
+</ul>
+<div id="info"></div> 
+</div>
+<div id="veil"></div>
+<div id='content'>
+<div id='contact' class='overlay-content'><div class='boxed'>karoantonio@gmail.com</div></div>
+<iframe class="project" id="pretty" src="" data-src="http://karoantonio.github.io/pretty-sounds/"></iframe>
+<iframe class="project" id="poetry" src="" data-src="http://karoantonio.github.io/ExplorativePoetry/"></iframe>
+<iframe class="project" id="wrdcvlt" src="" data-src="http://www.wrdcvlt.com"></iframe>
+<iframe class="project" id="cities" src="" data-src="http://karoantonio.github.io/CityCompare/"></iframe>
+    </div>
+    <script>
+var selected_project = null;
+    
+var choice_tree = {
+    'KARO':['MADE','ON'],
+    'MADE':['THIS','PRETTY SOUNDS','POETRY','WRDCVLT','CITIES','TALK2ME'],
+    'ON':['GITHUB','TUMBLR'],
+}
+    
+$(document).ready(
+    function () {
+        $('.project').css('display','none')
+        $('#info').hover(function(event) {
+            $('.overlay').removeClass('hover-listener');
+        })
+        $('#root').hover(function() {
+            $('.overlay').addClass('hover-listener');
+        },function() {
+            $('.overlay').removeClass('hover-listener');
+        })
+    })
+
+function toggle_display(id) {
+    var e = $(id);
+    if (selected_project != null) {
+        selected_project.css('display','none')
+    }
+    //Set Choices
+    //TODO make more robust
+    //Move Choices to top
+    var choice_one = $(id+'_button').parent().parent().parent()
+    choice_one.parent().prepend(choice_one)
+    var choice_two = $(id+'_button').parent()
+    choice_two.parent().prepend(choice_two)
+    
+    $('#root').children()[1].innerHTML = 
+            choice_one[0].innerHTML;
+    $('#choice_2')[0].innerHTML = 
+            $(id+'_button')[0].innerHTML;
+    
+    selected_project = e;
+    if (e.css('display') == 'none') {
+        $(id+'_button')
+        e.css('display','block')
+    } else {
+        //e.css('display','none')
+    }
+    if (e[0]['src'] != undefined){  
+        console.log(e.data('src'))
+        e[0].src = e.data('src');
+        $('#info')[0].innerHTML = e[0].src;
+        $('#info')[0].onclick = function () { window.open(e[0].src); }
+    } else {
+        $('#info')[0].innerHTML = "";
+        $('#info')[0].onclick = null;
+    }
+    $('.overlay').css('pointer-events','none');
+}
+</script>
+</body>
+</html>
