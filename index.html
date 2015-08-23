@@ -8,7 +8,7 @@
 <body>
 <div class="overlay hover-listener">
 <ul id="root">
-<li><div id='name'>KARO</div>
+<li><div id='name_0' class='name rootname'>KARO</div>
     <ul class="sub-menu">
         <li><div>LIVES</div>
             <ul class="sub-menu">
@@ -56,6 +56,7 @@
     </div>
     <script>
 var selected_project = null;
+var og_root = null;
     
 var choice_tree = {
     'KARO':['MADE','ON'],
@@ -65,9 +66,12 @@ var choice_tree = {
     
 $(document).ready(
     function () {
+        //SET splash
         selected_project = $('#here');
         selected_project.addClass('splash');
         $('.project').css('display','none')
+        
+        //TWEAK overlay:hover
         $('#info').hover(function(event) {
             $('.overlay').removeClass('hover-listener');
         })
@@ -76,7 +80,51 @@ $(document).ready(
         },function() {
             $('.overlay').removeClass('hover-listener');
         })
+        
+        //STYLE overlay display
+        style_overlay()
     })
+
+function style_overlay() {
+    //Poorly designed
+    //TODO restructure as a table of trees
+    var karo = $('#root').children()[0]
+    //ADD Faux names
+    var num_faux = $('#root>li>ul>li').length
+            + $('#root>li>ul>li').last().children().last().children().length
+            - 2
+    for (i = 0; i < num_faux; i++) {
+        var new_karo = document.createElement("div");
+        new_karo.innerHTML = "KARO"
+        new_karo.id = "name_"+(i+1)
+        new_karo.style.display = 'none';
+        new_karo.className = 'name faux'
+        $('#root>li').first().append(new_karo)
+    }
+    
+    $('#root>li>ul>li').hover(function() {
+        //DISPLAY all faux name elements
+        $('.faux').css('display','block')
+        //HIDE all names
+        $('.name').css('visibility','hidden')
+        //SHOW corresponding name
+        $('#name_'+$(this).index()).css('visibility','visible')
+    }, function() {
+        $('.faux').css('display','none')
+        $('.rootname').css('visibility','visible')
+    })
+    
+    $('#root>li>ul>li>ul>li').hover(function() {
+        //HIDE all aunts and uncles
+        $('#root>li>ul>li').css('visibility','hidden')
+        //SHOW parent()
+        console.log($(this).parent())
+        $(this).parent().parent().css('visibility','visible')
+    }, function() {
+        //SHOW all aunts and uncles
+        $('#root>li>ul>li').css('visibility','visible')
+    })
+}
 
 function toggle_display(id) {
     var e = $(id);
@@ -113,6 +161,7 @@ function toggle_display(id) {
         $('#info')[0].onclick = null;
     }
     $('.overlay').css('pointer-events','none');
+    $('.overlay').removeClass('hover-listener')
 }
 </script>
 </body>
