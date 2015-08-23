@@ -38,6 +38,7 @@
 </div>
 <div id="veil"></div>
 <div id='content'>
+<div id='inklens' class='overlay-content'><img src="assets/inklensII.jpg" width="100%" height="100%"></div>
 <div id='contact' class='overlay-content'><div class='boxed'>karoantonio@gmail.com</div></div>
 <iframe class="project" id="pretty" src="" data-src="http://karoantonio.github.io/pretty-sounds/"></iframe>
 <iframe class="project" id="poetry" src="" data-src="http://karoantonio.github.io/ExplorativePoetry/"></iframe>
@@ -55,6 +56,8 @@ var choice_tree = {
     
 $(document).ready(
     function () {
+        $('#inklens').addClass('splash');
+        selected_project = $('#inklens');
         $('.project').css('display','none')
         $('#info').hover(function(event) {
             $('.overlay').removeClass('hover-listener');

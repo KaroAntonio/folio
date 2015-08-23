@@ -19,7 +19,7 @@ body {
     padding-top: 20px;
     /*padding-bottom: 20px;*/
     opacity: 0.8;
-    position: absolute;
+    position: fixed;
     width: 100%;
     z-index: 10;
     text-align: center;
@@ -156,4 +156,9 @@ li:hover > .sub-menu {
     padding: 0px;
     margin: 0px;
     display: none;
+}
+
+.splash {
+    display:block;
+    margin-top: 0px;
 }
