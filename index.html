@@ -10,6 +10,11 @@
 <ul id="root">
 <li><div id='name'>KARO</div>
     <ul class="sub-menu">
+        <li><div>LIVES</div>
+            <ul class="sub-menu">
+                <li><div id='here_button' onclick="toggle_display('#here')">HERE</div></li>
+            </ul>
+        </li>
         <li><div>MADE</div>
             <ul class="sub-menu">
                 <li><div id='pretty_button' onclick="toggle_display('#pretty')">PRETTY&nbspSOUNDS</div></li>
@@ -25,10 +30,11 @@
         </li>
         <li><div>ON</div>
             <ul class="sub-menu">
-                <li><div id='github'><a href='https://github.com/KaroAntonio'><img id='github_icon' src='assets/github_icon.png' width='30px'></a></div></li>
-                    <li><div id='tumblr'><a href='http://karoandme.tumblr.com'><img id='tumblr_icon' src='assets/tumblr_icon.png' width='26px'></a></div></li>
+                <li><div id='github'><a href='https://github.com/KaroAntonio'>GITHUB</a></div></li>
+                    <li><div id='tumblr'><a href='http://karoandme.tumblr.com'>TUMBLR</a></div></li>
             </ul>
         </li>
+        
     </ul>
 </li>
 <li><div id='choice_1'>LIVES</div>
@@ -38,7 +44,10 @@
 </div>
 <div id="veil"></div>
 <div id='content'>
+<div id='here' class='overlay-content'><img src="assets/aurorasynthetica.jpg" width="100%" height="100%"></div>
+<div id='ghost' class='overlay-content'><img src="assets/pixelghost.JPG" width="100%" height="100%"></div>
 <div id='inklens' class='overlay-content'><img src="assets/inklensII.jpg" width="100%" height="100%"></div>
+<div id='to-burst' class='overlay-content'><img src="assets/to-burst.jpg" width="100%" height="100%"></div>
 <div id='contact' class='overlay-content'><div class='boxed'>karoantonio@gmail.com</div></div>
 <iframe class="project" id="pretty" src="" data-src="http://karoantonio.github.io/pretty-sounds/"></iframe>
 <iframe class="project" id="poetry" src="" data-src="http://karoantonio.github.io/ExplorativePoetry/"></iframe>
@@ -56,8 +65,8 @@ var choice_tree = {
     
 $(document).ready(
     function () {
-        $('#inklens').addClass('splash');
-        selected_project = $('#inklens');
+        selected_project = $('#here');
+        selected_project.addClass('splash');
         $('.project').css('display','none')
         $('#info').hover(function(event) {
             $('.overlay').removeClass('hover-listener');
