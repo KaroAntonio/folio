@@ -133,6 +133,8 @@ function toggle_display(id) {
     var e = $(id);
     if (selected_project != null) {
         selected_project.css('display','none')
+        selected_project[0].src = ""
+        
     }
     //Set Choices
     //TODO make more robust
@@ -154,8 +156,7 @@ function toggle_display(id) {
     } else {
         //e.css('display','none')
     }
-    if (e[0]['src'] != undefined){  
-        console.log(e.data('src'))
+    if (e[0]['src'] != undefined){ 
         e[0].src = e.data('src');
         $('#info')[0].innerHTML = e[0].src;
         $('#info')[0].onclick = function () { window.open(e[0].src); }
