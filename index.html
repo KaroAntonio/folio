@@ -15,17 +15,24 @@
                 <li><div id='here_button' onclick="toggle_display('#here')">HERE</div></li>
             </ul>
         </li>
+        <li><div>IS</div>
+            <ul class="sub-menu">
+                <li><div id='accomplished_button' onclick="toggle_display('#accomplished')">ACCOMPLISHED</div></li>
+            </ul>
+        </li>
         <li><div>MADE</div>
             <ul class="sub-menu">
                 <li><div id='pretty_button' onclick="toggle_display('#pretty')">PRETTY&nbspSOUNDS</div></li>
                 <li><div id='poetry_button' onclick="toggle_display('#poetry')">POETRY</div></li>
                 <li><div id='wrdcvlt_button' onclick="toggle_display('#wrdcvlt')">WRDCVLT</div></li>
                 <li><div id='cities_button' onclick="toggle_display('#cities')">CITIES</div></li>
+                <li><div id='visuals_button' onclick="toggle_display('#visuals')">VISUALS</div></li>
             </ul>
         </li>
         <li><div>WANTS</div>
             <ul class="sub-menu">
                 <li><div id='contact_button' onclick="toggle_display('#contact')">2TALK2U</div></li>
+                <li><div id='work_button' onclick="toggle_display('#work')">2WORKWU</div></li>
             </ul>
         </li>
         <li><div>ON</div>
@@ -44,20 +51,37 @@
 </div>
 <div id="veil"></div>
 <div id='content'>
-<iframe class="project" id="here" src="" data-src="http://karoantonio.github.io/Aurora-Synthetica/"></iframe>
-<!--
-<div id='here' class='overlay-content'><img src="assets/aurorasynthetica.jpg" width="100%" height="100%"></div>-->
-<div id='ghost' class='overlay-content'><img src="assets/pixelghost.JPG" width="100%" height="100%"></div>
-<div id='inklens' class='overlay-content'><img src="assets/inklensII.jpg" width="100%" height="100%"></div>
-<div id='to-burst' class='overlay-content'><img src="assets/to-burst.jpg" width="100%" height="100%"></div>
-<div id='contact' class='overlay-content'><div class='boxed'>karoantonio@gmail.com</div></div>
 <iframe class="project" id="pretty" src="" data-src="http://karoantonio.github.io/pretty-sounds/"></iframe>
 <iframe class="project" id="poetry" src="" data-src="http://karoantonio.github.io/ExplorativePoetry/"></iframe>
 <iframe class="project" id="wrdcvlt" src="" data-src="http://www.wrdcvlt.com"></iframe>
 <iframe class="project" id="cities" src="" data-src="http://karoantonio.github.io/CityCompare/"></iframe>
-    </div>
-    <script>
+<iframe class="project" id="here" src="" data-src="http://karoantonio.github.io/Aurora-Synthetica/"></iframe>
+<iframe class="project" id="accomplished" src="" data-src="assets/Karo_Antonio.pdf"></iframe>
+    
+<div id='visuals' class='overlay-content'>
+    <img class="cropped" src="assets/imgs/to-burst.jpg">
+    <img class="cropped" src="assets/imgs/inklensII.jpg">
+    <img class="cropped" src="assets/imgs/pixelghost.JPG">
+    <img class="cropped" src="assets/imgs/aurorasynthetica.jpg">
+    <img class="cropped" src="assets/imgs/indulgence.png">
+    <img class="cropped" src="assets/imgs/vynl.jpg">
+    <img class="cropped" src="assets/imgs/hungry.JPG">
+    <img class="cropped" src="assets/imgs/cosmic_owl.jpg">
+    <img class="cropped" src="assets/imgs/icosahedric_moon.jpg">
+    <img class="cropped" src="assets/imgs/treasures.jpg">
+    <img class="cropped" src="assets/imgs/mute_metal.jpg">
+    <img class="cropped" src="assets/imgs/digital_erosion.jpg">
+    <img class="cropped" src="assets/imgs/xeno.JPG">
+    <img class="cropped" src="assets/imgs/gorilla.JPG">
+</div>
+
+<div id='contact' class='overlay-content banner'><div>call me</div><div class='boxed'>karoantonio@gmail.com</div></div>
+<div id='work' class='overlay-content banner'><div>let's do</div><div class='boxed'>karoantonio@gmail.com</div></div>
+
+</div>
+<script>
 var selected_project = null;
+var selected_img = null;
 var og_root = null;
     
 var choice_tree = {
@@ -86,6 +110,22 @@ $(document).ready(
         
         //STYLE overlay display
         style_overlay()
+        
+        //Image toggle
+        $('.cropped').click( function() {
+            if (selected_img != null) {
+                if (selected_img[0].src == $(this)[0].src)
+                    selected_img.toggleClass('uncropped')
+                else {
+                    selected_img.removeClass('uncropped')
+                    $(this).addClass('uncropped')
+                }
+            } else {
+                $(this).addClass('uncropped')
+            }
+            selected_img = $(this)
+        })
+                
     })
 
 function style_overlay() {
@@ -121,7 +161,6 @@ function style_overlay() {
         //HIDE all aunts and uncles
         $('#root>li>ul>li').css('visibility','hidden')
         //SHOW parent()
-        console.log($(this).parent())
         $(this).parent().parent().css('visibility','visible')
     }, function() {
         //SHOW all aunts and uncles
@@ -165,7 +204,7 @@ function toggle_display(id) {
         $('#info')[0].onclick = null;
     }
     $('.overlay').css('pointer-events','none');
-    $('.overlay').removeClass('hover-listener')
+    $('.overlay').removeClass('hover-listener');
 }
 </script>
 </body>
