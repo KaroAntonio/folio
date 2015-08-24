@@ -73,6 +73,7 @@
     <img class="cropped" src="assets/imgs/digital_erosion.jpg">
     <img class="cropped" src="assets/imgs/xeno.JPG">
     <img class="cropped" src="assets/imgs/gorilla.JPG">
+    <img class="cropped" src="assets/imgs/liptextures.gif">
 </div>
 
 <div id='contact' class='overlay-content banner'><div>call me</div><div class='boxed'>karoantonio@gmail.com</div></div>
@@ -108,7 +109,7 @@ $(document).ready(
             $('.overlay').removeClass('hover-listener');
         })
         
-        //STYLE overlay display
+        //STYLE overlay tree
         style_overlay()
         
         //Image toggle
@@ -125,7 +126,6 @@ $(document).ready(
             }
             selected_img = $(this)
         })
-                
     })
 
 function style_overlay() {
@@ -144,6 +144,20 @@ function style_overlay() {
         new_karo.className = 'name faux'
         $('#root>li').first().append(new_karo)
     }
+    
+    //Try to display a menu of choices on hover
+    /*
+    $('#root>li:nth-child(2)').hover(function() {
+        $('#root>li>ul').css('display','block')
+        $('#choice_2').css('display','hidden')
+        $(this).css('display','hidden')
+    }, function() {
+        $('.sub-menu').css('display','hidden')
+        $('#root>li>ul').css('display','hidden')
+        $('#choice_2').css('display','block')
+        $('#root>li').css('display','inline-block')
+    })
+    */
     
     $('#root>li>ul>li').hover(function() {
         //DISPLAY all faux name elements

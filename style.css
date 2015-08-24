@@ -94,16 +94,19 @@ a {
     margin: 0px;
     padding: 0px;
     width: 100%;
+    /*
     filter: grayscale(30%);
     -webkit-filter: grayscale(30%);
     -moz-filter: grayscale(30%);
+    */
 }
-
+/*
 .cropped:hover {
     filter: none;
     -webkit-filter: none;
     -moz-filter: none;
 }
+*/
 
 .uncropped {
     filter: none;
