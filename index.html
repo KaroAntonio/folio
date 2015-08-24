@@ -44,7 +44,9 @@
 </div>
 <div id="veil"></div>
 <div id='content'>
-<div id='here' class='overlay-content'><img src="assets/aurorasynthetica.jpg" width="100%" height="100%"></div>
+<iframe class="project" id="here" src="" data-src="http://karoantonio.github.io/Aurora-Synthetica/"></iframe>
+<!--
+<div id='here' class='overlay-content'><img src="assets/aurorasynthetica.jpg" width="100%" height="100%"></div>-->
 <div id='ghost' class='overlay-content'><img src="assets/pixelghost.JPG" width="100%" height="100%"></div>
 <div id='inklens' class='overlay-content'><img src="assets/inklensII.jpg" width="100%" height="100%"></div>
 <div id='to-burst' class='overlay-content'><img src="assets/to-burst.jpg" width="100%" height="100%"></div>
@@ -70,6 +72,7 @@ $(document).ready(
         selected_project = $('#here');
         selected_project.addClass('splash');
         $('.project').css('display','none')
+        toggle_display('#here')
         
         //TWEAK overlay:hover
         $('#info').hover(function(event) {
