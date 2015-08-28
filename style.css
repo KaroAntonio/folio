@@ -1,6 +1,7 @@
-body {
+body, html {
     font-family: sans-serif;
     margin: 0px;
+    top: 0px;
     padding 0px;
     height: 100%;
 }
@@ -21,6 +22,7 @@ a {
 }
 
 .overlay {
+    margin-top: 0px;
     opacity: 0.8;
     position: fixed;
     width: 100%;
@@ -65,12 +67,13 @@ a {
 }
 
 .banner {
-    margin-top: 16%;
+    margin-top: 0%;
+    padding-top: 16%;
 }
 
 .overlay-content {
-    position: absolute;
     width: 100%;
+    height: 100%;
     z-index: 6;
     text-align: center;
     font-size: 50px;
@@ -198,4 +201,46 @@ li:hover > .sub-menu {
 .splash {
     display:block;
     margin-top: 0px;
+}
+
+#contact {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    text-align: left;
+    font-size: 20px;
+}
+
+#from_email {
+    border: 1px solid #eee;
+    width: 99%;
+}
+
+#email_content {
+    width: 99%;
+    height: 100px;
+    border: 1px solid #eee;
+    outline: none;
+    resize: none;
+}
+
+.button {
+    font-size: 20px;
+    color: #777;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#email_feedback {
+    color: #F4D9FB;
+    float: right;
+}
+
+.button:hover {
+    color: #DC80F2;
+}
+
+.wrapper {
+    width: 100%;
+    text-align: center;
 }

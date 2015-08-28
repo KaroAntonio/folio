@@ -3,7 +3,7 @@
 <head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
-
+    <title>Karo Antonio</title>
 </head>
 <body>
 <div class="overlay hover-listener">
@@ -17,7 +17,7 @@
         </li>
         <li><div>IS</div>
             <ul class="sub-menu">
-                <li><div id='accomplished_button' onclick="toggle_display('#accomplished')">ACCOMPLISHED</div></li>
+                <li><div id='accomplished_button' onclick="toggle_display('#accomplished')">PROFESSIONAL</div></li>
             </ul>
         </li>
         <li><div>MADE</div>
@@ -31,8 +31,7 @@
         </li>
         <li><div>WANTS</div>
             <ul class="sub-menu">
-                <li><div id='contact_button' onclick="toggle_display('#contact')">2TALK2U</div></li>
-                <li><div id='work_button' onclick="toggle_display('#work')">2WORKWU</div></li>
+                <li><div id='contact_button' onclick="toggle_display('#contact')">2WORKWU</div></li>
             </ul>
         </li>
         <li><div>ON</div>
@@ -75,11 +74,17 @@
     <img class="cropped" src="assets/imgs/gorilla.JPG">
     <img class="cropped" src="assets/imgs/liptextures.gif">
 </div>
-
-<div id='contact' class='overlay-content banner'><div>call me</div><div class='boxed'>karoantonio@gmail.com</div></div>
-<div id='work' class='overlay-content banner'><div>let's do</div><div class='boxed'>karoantonio@gmail.com</div></div>
+    
+<div id='contact' class='overlay-content banner'>
+    <div id='to_email'>: karoantonio@gmail.com</div>
+    <input name="from_email" id="from_email" placeholder="Your Email">
+    <textarea name="email_content" id="email_content" placeholder="Your Words"></textarea>
+    <div class='button' onclick="send_email()">send</div>
+    <div id='email_feedback' onclick="send_email()"></div>
+</div>
 
 </div>
+</body>
 <script>
 var selected_project = null;
 var selected_img = null;
@@ -127,6 +132,33 @@ $(document).ready(
             selected_img = $(this)
         })
     })
+
+function send_email() {
+    $.ajax({
+  type: 'POST',
+  url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+  data: {
+    'key': 'Gl_eL5YtBMU5IbUt1XCjnQ',
+    'message': {
+      'from_email': $('#from_email')[0].value,
+      'to': [
+          {
+            'email': 'karoantonio@gmail.com',
+            'name': 'Karo',
+            'type': 'to'
+          },
+        ],
+      'autotext': 'true',
+      'subject': 'Person from karoantonio.com',
+      'html': $('#email_content')[0].value,
+    }
+  }
+ }).done(function(response) {
+        console.log(response)
+        $('#email_feedback')[0].innerHTML = response[0]['status'] + "!"
+ });
+}
+
 
 function style_overlay() {
     //Poorly designed
@@ -209,7 +241,7 @@ function toggle_display(id) {
     } else {
         //e.css('display','none')
     }
-    if (e[0]['src'] != undefined){ 
+    if (e[0]['src'] != undefined && e[0]['src'] != 'undefined'){ 
         e[0].src = e.data('src');
         $('#info')[0].innerHTML = e[0].src;
         $('#info')[0].onclick = function () { window.open(e[0].src); }
@@ -221,5 +253,5 @@ function toggle_display(id) {
     $('.overlay').removeClass('hover-listener');
 }
 </script>
-</body>
+
 </html>
