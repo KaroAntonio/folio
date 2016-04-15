@@ -1,222 +1,37 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html>
 <head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
     <title>Karo Antonio</title>
 </head>
-<script>
-var selected_project = null;
-var selected_img = null;
-var og_root = null;
-    
-var choice_tree = {
-    'KARO':['MADE','ON'],
-    'MADE':['THIS','PRETTY SOUNDS','POETRY','WRDCVLT','WHY STAY','TALK2ME'],
-    'ON':['GITHUB','TUMBLR'],
-}
-    
-$(document).ready(
-    function () {
-        //SET splash
-        selected_project = $('#here');
-        selected_project.addClass('splash');
-        $('.project').css('display','none')
-        toggle_display('#here')
-        
-        //TWEAK overlay:hover
-        $('#info').hover(function(event) {
-            $('.overlay').removeClass('hover-listener');
-        })
-        $('#root').hover(function() {
-            $('.overlay').addClass('hover-listener');
-        },function() {
-            $('.overlay').removeClass('hover-listener');
-        })
-        
-        //STYLE overlay tree
-        style_overlay()
-        
-        //Image toggle
-        $('.cropped').click( function() {
-            if (selected_img != null) {
-                if (selected_img[0].src == $(this)[0].src)
-                    selected_img.toggleClass('uncropped')
-                else {
-                    selected_img.removeClass('uncropped')
-                    $(this).addClass('uncropped')
-                }
-            } else {
-                $(this).addClass('uncropped')
-            }
-            selected_img = $(this)
-        })
-    })
 
-function send_email() {
-    $.ajax({
-  type: 'POST',
-  url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-  data: {
-    'key': 'Gl_eL5YtBMU5IbUt1XCjnQ',
-    'message': {
-      'from_email': $('#from_email')[0].value,
-      'to': [
-          {
-            'email': 'karoantonio@gmail.com',
-            'name': 'Karo',
-            'type': 'to'
-          },
-        ],
-      'autotext': 'true',
-      'subject': 'Person from karoantonio.com',
-      'html': $('#email_content')[0].value,
-    }
-  }
- }).done(function(response) {
-        console.log(response)
-        $('#email_feedback')[0].innerHTML = response[0]['status'] + "!"
- });
-}
-
-
-function style_overlay() {
-    //Poorly designed
-    //TODO restructure as a table of trees
-    var karo = $('#root').children()[0]
-    //ADD Faux names
-    var num_faux = $('#root>li>ul>li').length
-            + $('#root>li>ul>li').last().children().last().children().length
-            - 2
-    for (i = 0; i < num_faux; i++) {
-        var new_karo = document.createElement("div");
-        new_karo.innerHTML = "KARO"
-        new_karo.id = "name_"+(i+1)
-        new_karo.style.display = 'none';
-        new_karo.className = 'name faux'
-        $('#root>li').first().append(new_karo)
-    }
-    
-    //Try to display a menu of choices on hover
-    /*
-    $('#root>li:nth-child(2)').hover(function() {
-        $('#root>li>ul').css('display','block')
-        $('#choice_2').css('display','hidden')
-        $(this).css('display','hidden')
-    }, function() {
-        $('.sub-menu').css('display','hidden')
-        $('#root>li>ul').css('display','hidden')
-        $('#choice_2').css('display','block')
-        $('#root>li').css('display','inline-block')
-    })
-    */
-    
-    $('#root>li>ul>li').hover(function() {
-        //DISPLAY all faux name elements
-        $('.faux').css('display','block')
-        //HIDE all names
-        $('.name').css('visibility','hidden')
-        //SHOW corresponding name
-        $('#name_'+$(this).index()).css('visibility','visible')
-    }, function() {
-        $('.faux').css('display','none')
-        $('.rootname').css('visibility','visible')
-    })
-    
-    $('#root>li>ul>li>ul>li').hover(function() {
-        //HIDE all aunts and uncles
-        $('#root>li>ul>li').css('visibility','hidden')
-        //SHOW parent()
-        $(this).parent().parent().css('visibility','visible')
-    }, function() {
-        //SHOW all aunts and uncles
-        $('#root>li>ul>li').css('visibility','visible')
-    })
-}
-
-function toggle_display(id) {
-    var e = $(id);
-    if (selected_project != null) {
-        selected_project.css('display','none')
-        selected_project[0].src = ""
-        
-    }
-    //Set Choices
-    //TODO make more robust
-    //Move Choices to top
-    var choice_one = $(id+'_button').parent().parent().parent()
-    choice_one.parent().prepend(choice_one)
-    var choice_two = $(id+'_button').parent()
-    choice_two.parent().prepend(choice_two)
-    
-    $('#root').children()[1].innerHTML = 
-            choice_one[0].innerHTML;
-    $('#choice_2')[0].innerHTML = 
-            $(id+'_button')[0].innerHTML;
-    
-    selected_project = e;
-    if (e.css('display') == 'none') {
-        $(id+'_button')
-        e.css('display','block')
-    } else {
-        //e.css('display','none')
-    }
-    if (e[0]['src'] != undefined && e[0]['src'] != 'undefined'){ 
-        e[0].src = e.data('src');
-        $('#info')[0].innerHTML = e[0].src;
-        $('#info')[0].onclick = function () { window.open(e[0].src); }
-    } else {
-        $('#info')[0].innerHTML = "";
-        $('#info')[0].onclick = null;
-    }
-    $('.overlay').css('pointer-events','none');
-    $('.overlay').removeClass('hover-listener');
-}
-</script>
 <body>
-<div class="overlay hover-listener">
-<ul id="root">
-<li><div id='name_0' class='name rootname'>KARO</div>
-    <ul class="sub-menu">
-        <li><div>LIVES</div>
-            <ul class="sub-menu">
-                <li><div id='here_button' onclick="toggle_display('#here')">HERE</div></li>
-            </ul>
-        </li>
-        <li><div>MADE</div>
-            <ul class="sub-menu">
-                <li><div id='pretty_button' onclick="toggle_display('#pretty')">PRETTY&nbspSOUNDS</div></li>
-                <li><div id='wrdcvlt_button' onclick="toggle_display('#wrdcvlt')">WRDCVLT</div></li>
-                <li><div id='why_stay_button' onclick="toggle_display('#why_stay')">WHY STAY</div></li>
-                <li><div id='visuals_button' onclick="toggle_display('#visuals')">VISUALS</div></li>
-            </ul>
-        </li>
-        <li><div>ON</div>
-            <ul class="sub-menu">
-                <li><div id='github'><a href='https://github.com/KaroAntonio'>GITHUB</a></div></li>
-                    <li><div id='tumblr'><a href='http://karoandme.tumblr.com'>TUMBLR</a></div></li>
-            </ul>
-        </li>
-        <li><div>'S</div>
-            <ul class="sub-menu">
-                <li><div id='accomplished_button' onclick="toggle_display('#accomplished')">CV</div></li>
-            </ul>
-        </li>
-        <li><div>WANTS</div>
-            <ul class="sub-menu">
-                <li><div id='contact_button' onclick="toggle_display('#contact')">2WORKWU</div></li>
-            </ul>
-        </li>
-        
-    </ul>
-</li>
-<li><div id='choice_1'>LIVES</div>
-<li><div id='choice_2'>HERE</div>
+	<div id='info'></div>
+	<div id='side-bar'>
+	<ul class="sub-menu">
+	</ul>
+		<ul class="sub-menu">
+	<li><div id='here_button' onclick="toggle_display('#here')">HERE</div></li>
+	<li><div id='pretty_button' onclick="toggle_display('#pretty')">PRETTY&nbspSOUNDS</div></li>
+	<li><div id='wrdcvlt_button' onclick="toggle_display('#wrdcvlt')">WRDCVLT</div></li>
+	<li><div id='bodies_button' onclick="toggle_display('#bodies')">BODIES</div></li>
+	<li><div id='why_stay_button' onclick="toggle_display('#why_stay')">WHY STAY</div></li>
+	<li><div id='disorder_button' onclick="toggle_display('#disorder')">DISORDER</div></li>
+	<li><div id='advice_button' onclick="toggle_display('#advice')">ADVICE</div></li>
+	<li><div id='visuals_button' onclick="toggle_display('#visuals')">VISUALS</div></li>
+	<li><div id='github'><a href='https://github.com/KaroAntonio'>GITHUB</a></div></li>
+	<li><div id='tumblr'><a href='http://karoandme.tumblr.com'>TUMBLR</a></div></li>
+	<li><div id='wikipedia'><a href='https://en.wikipedia.org/wiki/Karo'>WIKIPEDIA</a></div></li>
+	<li><div id='accomplished_button' onclick="toggle_display('#accomplished')">CV</div></li>
+	<li><div id='contact_button' onclick="toggle_display('#contact')">2WORKWU</div></li>
 </ul>
-<div id="info"></div> 
 </div>
-<div id="veil"></div>
+        
 <div id='content'>
+<iframe class="project" id="advice" src="" data-src="http://karoantonio.github.io/i-need-your-advice/"></iframe>
+<iframe class="project" id="bodies" src="" data-src="http://karoantonio.github.io/bodies.net/"></iframe>
+<iframe class="project" id="disorder" src="" data-src="http://karoantonio.github.io/disorder/"></iframe>
 <iframe class="project" id="pretty" src="" data-src="http://karoantonio.github.io/pretty-sounds/"></iframe>
 <iframe class="project" id="why_stay" src="" data-src="http://karoantonio.github.io/why-stay/"></iframe>
 <iframe class="project" id="wrdcvlt" src="" data-src="http://www.wrdcvlt.com"></iframe>
@@ -225,7 +40,7 @@ function toggle_display(id) {
 <!--<iframe class="project" id="here" src="" data-src="http://karoandme.tumblr.com"></iframe>-->
 <iframe class="project" id="accomplished" src="" data-src="assets/Karo_Antonio.pdf"></iframe>
     
-<div id='visuals' class='overlay-content'>
+<div id='visuals' class='content'>
     <img class="cropped" src="assets/imgs/to-burst.jpg">
     <img class="cropped" src="assets/imgs/inklensII.jpg">
     <img class="cropped" src="assets/imgs/pixelghost.JPG">
@@ -243,7 +58,7 @@ function toggle_display(id) {
     <img class="cropped" src="assets/imgs/liptextures.gif">
 </div>
     
-<div id='contact' class='overlay-content banner'>
+<div id='contact' class='content'>
     <div id='to_email'>: karoantonio@gmail.com</div>
     <input name="from_email" id="from_email" placeholder="Your Email">
     <textarea name="email_content" id="email_content" placeholder="Your Words"></textarea>
@@ -254,5 +69,6 @@ function toggle_display(id) {
 </div>
 </body>
 
+<script src="script.js"></script>
 
 </html>
