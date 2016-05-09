@@ -11,10 +11,11 @@ var choice_tree = {
 $(document).ready(
     function () {
         //SET splash
-        selected_project = $('#dont_die');
+		var splash = '#beige'
+        selected_project = $(splash);
         selected_project.addClass('splash');
         $('.project').css('display','none')
-        toggle_display('#dont_die')
+        toggle_display(splash)
 		/*
 
         //TWEAK overlay:hover
