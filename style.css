@@ -12,6 +12,11 @@ a {
     color: inherit;
 }
 
+.sub-menu li:hover {
+	font-style: italic;
+
+}
+
 #content {
 	width: 90vw;
 	margin-left: 10vw;
