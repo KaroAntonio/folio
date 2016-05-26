@@ -7,9 +7,13 @@ $(document).ready(
     function () {
 		// ADD Projects
 		table = $('#side-bar ul');
-		Object.keys(projects).forEach(function(e, i , arr) {
-			build_project(e, projects[e]);
-		});
+		console.log(projects);
+		projects.forEach(function(e, i , arr) {
+			add_project(e[0], e[1], e[2]); });
+
+		// ADD Links
+		links.forEach(function( e, i, arr ) {
+			add_link( e[0], [1], e[2]); });
 
         //SET splash
 		var splash = '#beige'
@@ -34,7 +38,21 @@ $(document).ready(
         })
     })
 
-function build_project( label, repo ) {
+function add_link( label, url, alt ) {
+	// add link to website
+	// Add Button
+	var button = $('<div>');
+	var row = $('<li>');
+	button.html(label);
+	button.attr('id',repo + '_button');
+	button.attr('title',alt)
+	row.prepend(button);
+	table.append(row);
+	button.click(function(){
+		window.location = url;
+	});
+}
+function add_project( label, repo, alt ) {
 	// label : label to be used on the bottun
 	// repo : the corresponding repo to sources
 	
@@ -51,6 +69,7 @@ function build_project( label, repo ) {
 	var row = $('<li>');
 	button.html(label);
 	button.attr('id',repo + '_button');
+	button.attr('title',alt)
 	row.prepend(button);
 	table.prepend(row);
 	button.click(function(){
