@@ -258,3 +258,26 @@ ul {
     width: 100%;
     text-align: center;
 }
+
+/* Tool Tip */
+.tip:hover {
+    cursor: help;
+    position: relative;
+}
+
+.tip span {
+    display: none
+}
+
+.tip:hover span {
+    display: block;
+    z-index: 100;
+    background: white;
+    left: 0px;
+    margin: 10px;
+    width: 250px;
+    position: absolute;
+    top: 10px;
+}
+
+

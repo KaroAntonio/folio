@@ -5,6 +5,8 @@ var table;
 
 $(document).ready(
     function () {
+		// projects, links, splash defined in js/projects.js
+
 		// ADD Projects
 		table = $('#side-bar ul');
 		console.log(projects);
@@ -16,7 +18,6 @@ $(document).ready(
 			add_link( e[0], [1], e[2]); });
 
         //SET splash
-		var splash = '#beige'
         selected_project = $(splash);
         selected_project.addClass('splash');
         $('.project').css('display','none')
@@ -44,8 +45,9 @@ function add_link( label, url, alt ) {
 	var button = $('<div>');
 	var row = $('<li>');
 	button.html(label);
-	button.attr('id',repo + '_button');
-	button.attr('title',alt)
+	button.attr('id',label + '_button');
+	button.attr('title',alt);
+	button.append('<span>'+alt+'</span>');
 	row.prepend(button);
 	table.append(row);
 	button.click(function(){

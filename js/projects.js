@@ -1,4 +1,6 @@
-//central location to pull projects from
+// central resource to pull projects from
+var splash = "#beige";  //splash id is repo name
+
 // button name , repo , title
 var projects = [
 	['wrote','wrote','word, words'],
