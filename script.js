@@ -9,13 +9,15 @@ $(document).ready(
 
 		// ADD Projects
 		table = $('#side-bar ul');
-		console.log(projects);
 		projects.forEach(function(e, i , arr) {
-			add_project(e[0], e[1], e[2]); });
+			add_project(e[0], e[1]); 
+			add_button(e[0], e[2], function() { toggle_display('#' + e[1]); });
+		});
+			
 
 		// ADD Links
 		links.forEach(function( e, i, arr ) {
-			add_link( e[0], [1], e[2]); });
+			add_button( e[0], e[2], function() { window.location = e[1] }); });
 
         //SET splash
         selected_project = $(splash);
@@ -39,22 +41,19 @@ $(document).ready(
         })
     })
 
-function add_link( label, url, alt ) {
-	// add link to website
+function add_button( label, alt, click_func ) {
 	// Add Button
 	var button = $('<div>');
 	var row = $('<li>');
 	button.html(label);
 	button.attr('id',label + '_button');
-	button.attr('title',alt);
 	button.append('<span>'+alt+'</span>');
+	button.addClass('tip');
 	row.prepend(button);
-	table.append(row);
-	button.click(function(){
-		window.location = url;
-	});
+	table.prepend(row);
+	button.click( click_func );
 }
-function add_project( label, repo, alt ) {
+function add_project( label, repo ) {
 	// label : label to be used on the bottun
 	// repo : the corresponding repo to sources
 	
@@ -65,18 +64,6 @@ function add_project( label, repo, alt ) {
 	proj.attr('id',repo);
 	proj.attr('data-src', repo_root + repo + "/");
 	$('#content').prepend(proj);
-	
-	// Add Button
-	var button = $('<div>');
-	var row = $('<li>');
-	button.html(label);
-	button.attr('id',repo + '_button');
-	button.attr('title',alt)
-	row.prepend(button);
-	table.prepend(row);
-	button.click(function(){
-		toggle_display('#'+repo);
-	});
 }
 
 function send_email() {
@@ -100,7 +87,6 @@ function send_email() {
     }
   }
  }).done(function(response) {
-        console.log(response)
         $('#email_feedback')[0].innerHTML = response[0]['status'] + "!"
  });
 }
@@ -114,13 +100,14 @@ function toggle_display(id) {
     //Set Choices
     //TODO make more robust
     //Move Choices to top
+	/*
     var choice_one = $(id+'_button').parent().parent().parent()
     choice_one.parent().prepend(choice_one)
     var choice_two = $(id+'_button').parent()
     choice_two.parent().prepend(choice_two)
+	*/
     selected_project = e;
     if (e.css('display') == 'none') {
-        $(id+'_button')
         e.css('display','block')
     } else {
         e.css('display','none')
