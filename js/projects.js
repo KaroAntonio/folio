@@ -7,6 +7,7 @@ var projects = [
 	['plan _','the-plan','stick to it'],
 	['PANTONE','pantone-selector','the colour u need'],
 	['80-20','80-20','this explains everything'],
+	['protect_u','protect-u','help me help you'],
 ]
 
 var links = [
