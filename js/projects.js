@@ -8,6 +8,7 @@ var projects = [
 	['PANTONE','pantone-selector','the colour u need'],
 	['80-20','80-20','this explains everything'],
 	['protect_u','protect-u','help me help you'],
+	['ctrl','ctrl','when you hear the sound of the bell ringing, lose ctrl'],
 ]
 
 var links = [
