@@ -271,12 +271,13 @@ ul {
 }
 
 .tip:hover span {
-    z-index: 10000;
+    z-index: 100000;
     position: absolute;
     display: block;
     background: white;
     left: 100px;
     margin: 0px;
+    margin-top: -20px;
     width: 250px;
 }
 

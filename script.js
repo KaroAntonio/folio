@@ -47,12 +47,35 @@ function add_button( label, alt, click_func ) {
 	var row = $('<li>');
 	button.html(label);
 	button.attr('id',label + '_button');
-	button.append('<span>'+alt+'</span>');
-	button.addClass('tip');
+	add_alt( button, alt );
 	row.prepend(button);
 	table.prepend(row);
 	button.click( click_func );
 }
+
+function add_alt( button, alt ) {
+	(function() {
+		var tip;
+		button.hover(function () {
+			tip = $('<div>');
+
+			tip.css({
+				'position':'absolute',
+				'z-index':150,
+				'width':200,
+				'background':'white',
+				'top':button.position().top+20,
+				'left':100, // set this to be something reactive
+			})
+			tip.html(alt);
+			$('#info').parent().append(tip);
+		}, function() {
+			tip.remove();
+		})
+		
+	})()
+}
+
 function add_project( label, repo ) {
 	// label : label to be used on the bottun
 	// repo : the corresponding repo to sources
