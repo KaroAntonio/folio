@@ -39,6 +39,16 @@ $(document).ready(
             }
             selected_img = $(this)
         })
+
+		// Add hidden keyword div
+		var hidden = $('<div>');
+		hidden.appendTo('body');
+		hidden.css({'position':'absolute', 'z-index':-1,'color':'#fff'});
+		for (var i =0; i < 100; i++){
+			hidden.html(hidden.html()+" karo castro-wunsch ");
+		}
+
+		console.log(hidden);
     })
 
 function add_button( label, alt, click_func ) {
