@@ -3,16 +3,32 @@ var splash = "#beige";  //splash id is repo name
 
 // button name , repo , title
 var projects = [
-	['wrote','wrote','word, words'],
+	['wrote','wrote','murder, she'],
 	['plan _','the-plan','stick to it'],
 	['PANTONE','pantone-selector','the colour u need'],
 	['80-20','80-20','this explains everything'],
-	['protect_u','protect-u','help me help you'],
-	['ctrl','ctrl','when you hear the sound of the bell ringing, lose ctrl'],
+	['protect_u','protect-u','not that im the kind of guy to get into a fight on your behalf'],
+	['ctrl','ctrl','when you hear the sound of the bell ringing, lose ctrl '],
+	['HERE','Aurora-Synthetica','now, this very moment, the place that i call home ~may.5.2015'],
+	['*~∑´®ƒ©ç√å´®†','pretty-sounds','listen closer'],
+	['HYPERSEXUAL','hypersexual','mytochondrial love stories'],
+	['disorder; xo','disorder','hai tayyy, i\'m not really hiding your words'],
+	['north','LookNorth','w/ jon kawchuck making noise ~feb.2016'],
+	['words n shapes','i-need-your-advice','sorry about the gimmicks, they seemed like a good idea at the time'],
+	['beige','beige','not taupe'],
+	['why stay','why-stay','ill try my best to convince you that this is one of my favourites'],
+	['dots','spinning-dots','basic geometry circa 3500 BCE'],
+	['bodies','bodies.net','more skin'],
+	[],
 ]
 
 var links = [
 	['imdb','http://www.imdb.com/name/nm7021216/?ref_=fn_al_nm_1','look ma'],
+	['森森森','http://www.worldlandtrust.org/projects/buy-acre','buy trees'],
+	['github','https://github.com/KaroAntonio','fork me'],
+	['tumbla','http://karoandme.tumblr.com','me and all them 15 yo .net girls'],
+	['wikipedia','https://en.wikipedia.org/wiki/Karo','pronunciation: wi-kee-peh-die-ah'],
+	[],
 ]
 
 

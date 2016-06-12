@@ -13,7 +13,7 @@ $(document).ready(
 			add_project(e[0], e[1]); 
 			add_button(e[0], e[2], function() { toggle_display('#' + e[1]); });
 		});
-			
+		add_button('wrdcvlt','a tree of stories',function() { toggle_display('#wrdcvlt'); });
 
 		// ADD Links
 		links.forEach(function( e, i, arr ) {
@@ -48,7 +48,6 @@ $(document).ready(
 			hidden.html(hidden.html()+" karo castro-wunsch ");
 		}
 
-		console.log(hidden);
     })
 
 function add_button( label, alt, click_func ) {
@@ -58,9 +57,12 @@ function add_button( label, alt, click_func ) {
 	button.html(label);
 	button.attr('id',label + '_button');
 	add_alt( button, alt );
-	row.prepend(button);
-	table.prepend(row);
-	button.click( click_func );
+	row.append(button);
+	table.append(row);
+	button.click( function() {
+		button.css({'color':'lightgrey'});
+		click_func();
+	});
 }
 
 function add_alt( button, alt ) {
@@ -68,14 +70,15 @@ function add_alt( button, alt ) {
 		var tip;
 		button.hover(function () {
 			tip = $('<div>');
+			console.log($('#side-bar').scrollTop() + " " + button.position().top)
 
 			tip.css({
 				'position':'absolute',
 				'z-index':150,
 				'width':200,
 				'background':'white',
-				'top':button.position().top+20,
-				'left':100, // set this to be something reactive
+				'top':button.position().top+20-$('#side-bar').scrollTop(),
+				'left':button.width(), // set this to be something reactive
 			})
 			tip.html(alt);
 			$('#info').parent().append(tip);

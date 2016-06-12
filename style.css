@@ -30,6 +30,7 @@ a {
 	height: 100vh;
 	background: white;
 	width: 10vw;
+	overflow: auto;
 }
 
 .content {
