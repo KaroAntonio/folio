@@ -15,6 +15,11 @@ $(document).ready(
 		});
 		add_button('wrdcvlt','a tree of stories',function() { toggle_display('#wrdcvlt'); });
 
+
+		$( window ).resize(function() {
+			$('.project').css({ 'width':window.innerWidth - $('#side-bar').width() });
+		})
+
 		// ADD Links
 		links.forEach(function( e, i, arr ) {
 			add_button( e[0], e[2], function() { window.location = e[1] }); });
@@ -70,7 +75,6 @@ function add_alt( button, alt ) {
 		var tip;
 		button.hover(function () {
 			tip = $('<div>');
-			console.log($('#side-bar').scrollTop() + " " + button.position().top)
 
 			tip.css({
 				'position':'absolute',
@@ -100,6 +104,7 @@ function add_project( label, repo ) {
 	proj.attr('id',repo);
 	proj.attr('data-src', repo_root + repo + "/");
 	$('#content').prepend(proj);
+	proj.css({ 'width':window.innerWidth - $('#side-bar').width() });
 }
 
 function send_email() {

@@ -18,8 +18,6 @@ a {
 }
 
 #content {
-	width: 90vw;
-	margin-left: 10vw;
 	float: right;
 	position: absolute;
 }
@@ -29,17 +27,17 @@ a {
 	position: fixed;
 	height: 100vh;
 	background: white;
-	width: 10vw;
+	width: 150px;
 	overflow: auto;
 }
 
 .content {
 	display: none;
-
 }
+
 .project {
-    width: 90vw;
-	margin-left: 10vw;
+	width:100vw;
+	margin-left: 150px;
     height: 100%;
     position: fixed;
     top: 0;
@@ -125,19 +123,7 @@ a {
     margin: 0px;
     padding: 0px;
     width: 100%;
-    /*
-    filter: grayscale(30%);
-    -webkit-filter: grayscale(30%);
-    -moz-filter: grayscale(30%);
-    */
 }
-/*
-.cropped:hover {
-    filter: none;
-    -webkit-filter: none;
-    -moz-filter: none;
-}
-*/
 
 .uncropped {
     filter: none;
