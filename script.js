@@ -10,8 +10,12 @@ $(document).ready(
 		// ADD Projects
 		table = $('#side-bar ul');
 		projects.forEach(function(e, i , arr) {
-			add_project(e[0], e[1]); 
-			add_button(e[0], e[2], function() { toggle_display('#' + e[1]); });
+			if (e[1]) {
+				var label = e[1];
+				add_project( label ); 
+				add_button(e[0], e[2], function() { 
+					toggle_display('#' + label.replace('.','-')); });
+			}
 		});
 		add_button('wrdcvlt','a tree of stories',function() { toggle_display('#wrdcvlt'); });
 
@@ -93,7 +97,7 @@ function add_alt( button, alt ) {
 	})()
 }
 
-function add_project( label, repo ) {
+function add_project( repo ) {
 	// label : label to be used on the bottun
 	// repo : the corresponding repo to sources
 	
@@ -101,7 +105,7 @@ function add_project( label, repo ) {
 	var repo_root = "http://karoantonio.github.io/"
 	var proj = $('<iframe>');
 	proj.addClass('project');
-	proj.attr('id',repo);
+	proj.attr('id',repo.replace('.','-'));
 	proj.attr('data-src', repo_root + repo + "/");
 	$('#content').prepend(proj);
 	proj.css({ 'width':window.innerWidth - $('#side-bar').width() });
@@ -153,6 +157,7 @@ function toggle_display(id) {
     } else {
         e.css('display','none')
     }
+	console.log(e);
     if (e[0]['src'] != undefined && e[0]['src'] != 'undefined'){
         e[0].src = e.data('src');
         $('#info')[0].innerHTML = e[0].src;

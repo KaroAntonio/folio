@@ -1,7 +1,7 @@
 // central resource to pull projects from
 var splash = "#beige";  //splash id is repo name
 
-// button name , repo , title
+// label , repo , alt
 var projects = [
 	['wrote','wrote','murder, she'],
 	['plan _','the-plan','stick to it'],
@@ -13,13 +13,12 @@ var projects = [
 	['*~∑´®ƒ©ç√å´®†','pretty-sounds','listen closer'],
 	['HYPERSEXUAL','hypersexual','mytochondrial love stories'],
 	['disorder; xo','disorder','hai tayyy, i\'m not really hiding your words'],
-	['north','LookNorth','w/ jon kawchuck making noise ~feb.2016'],
+	['north','LookNorth','w/ jon kawchuck making them beautiful noise ~feb.2016'],
 	['words n shapes','i-need-your-advice','sorry about the gimmicks, they seemed like a good idea at the time'],
 	['beige','beige','not taupe'],
 	['why stay','why-stay','ill try my best to convince you that this is one of my favourites'],
 	['dots','spinning-dots','basic geometry circa 3500 BCE'],
 	['bodies','bodies.net','more skin'],
-	[],
 ]
 
 var links = [
@@ -28,7 +27,6 @@ var links = [
 	['github','https://github.com/KaroAntonio','fork me'],
 	['tumbla','http://karoandme.tumblr.com','me and all them 15 yo .net girls'],
 	['wikipedia','https://en.wikipedia.org/wiki/Karo','pronunciation: wi-kee-peh-die-ah'],
-	[],
 ]
 
 
