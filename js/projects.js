@@ -19,6 +19,7 @@ var projects = [
 	['why stay','why-stay','ill try my best to convince you that this is one of my favourites'],
 	['dots','spinning-dots','basic geometry circa 3500 BCE'],
 	['bodies','bodies.net','more skin'],
+	['please dont stay','we-can-wait','i mean, just leave'],
 ]
 
 var links = [

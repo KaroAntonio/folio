@@ -17,7 +17,7 @@ a {
 
 }
 
-#content {
+#content-wrapper {
 	float: right;
 	position: absolute;
 }
@@ -31,12 +31,13 @@ a {
 	overflow: auto;
 }
 
-.content {
+.hidden {
 	display: none;
+	width:calc(100vw -150px);
+	margin-left: 150px;
 }
 
 .project {
-	width:100vw;
 	margin-left: 150px;
     height: 100%;
     position: fixed;
