@@ -20,6 +20,7 @@ var projects = [
 	['dots','spinning-dots','basic geometry circa 3500 BCE'],
 	['bodies','bodies.net','more skin'],
 	['please dont stay','we-can-wait','i mean, just leave'],
+	['command','command','can you take directions...? plug and play, read and execute'],
 ]
 
 var links = [
