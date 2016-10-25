@@ -21,6 +21,7 @@ var projects = [
 	['bodies','bodies.net','more skin'],
 	['please dont stay','we-can-wait','i mean, just leave'],
 	['command','command','can you take directions...? plug and play, read and execute'],
+	['dont play','dont-play',' i cant make you leave, but i can show you the door'],
 ]
 
 var links = [
