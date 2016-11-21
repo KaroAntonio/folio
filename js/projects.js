@@ -3,6 +3,10 @@ var splash = "#beige";  //splash id is repo name
 
 // label , repo , alt
 var projects = [
+	['Research','research','this where you want to look if youre trying to figure out how /useful/ i am, probably'],
+	['not real','not-real','be there to hold  me as  i lean over  the  edge of the  void,  just plz make  sure i  dont fall in'],
+	['dont play','dont-play',' i cant make you leave, but i can show you the door'],
+	['command','command','can you take directions...? plug and play, read and execute'],
 	['wrote','wrote','murder, she'],
 	['plan _','the-plan','stick to it'],
 	['PANTONE','pantone-selector','the colour u need'],
@@ -20,9 +24,6 @@ var projects = [
 	['dots','spinning-dots','basic geometry circa 3500 BCE'],
 	['bodies','bodies.net','more skin'],
 	['please dont stay','we-can-wait','i mean, just leave'],
-	['command','command','can you take directions...? plug and play, read and execute'],
-	['dont play','dont-play',' i cant make you leave, but i can show you the door'],
-	['not real','not-real','be there to hold  me as  i lean over  the  edge of the  void,  just plz make  sure i  dont fall in'],
 ]
 
 var links = [
