@@ -1,5 +1,5 @@
 // central resource to pull projects from
-var splash = "#PANTONE";  //splash id is repo name
+var splash = "#pantone-selector";  //splash id is repo name
 
 // label , repo , alt
 var projects = [
@@ -7,7 +7,7 @@ var projects = [
 	['dont play','dont-play',' i cant make you leave, but i can show you the door'],
 	['command','command','can you take directions...? plug and play, read and execute'],
 	['wrote','wrote','murder, she'],
-	['plan _','the-plan','stick to it'],
+	['plan _','plan','stick to it'],
 	['PANTONE','pantone-selector','the colour u need'],
 	['80-20','80-20','this explains everything'],
 	['protect_u','protect-u','not that im the kind of guy to get into a fight on your behalf'],
