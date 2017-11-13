@@ -1,9 +1,9 @@
 // central resource to pull projects from
-var splash = "#pantone-selector";  //splash id is repo name
+var splash = "#we-drowning";  //splash id is repo name
 
 // label , repo , alt
 var projects = [
-	['we drowning','we-drowing','i drown u, u drown me, we're a happy family'],
+	['we drowning','we-drowning','i drown u, u drown me, we a happy family'],
 	['not real','not-real','be there to hold  me as  i lean over  the  edge of the  void,  just plz make  sure i  dont fall in'],
 	['dont play','dont-play',' i cant make you leave, but i can show you the door'],
 	['command','command','can you take directions...? plug and play, read and execute'],
