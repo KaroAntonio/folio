@@ -3,6 +3,7 @@ var splash = "#we-drowning";  //splash id is repo name
 
 // label , repo , alt
 var projects = [
+	['intimate me','an-intimate-moment-with-a-block-of-ice','that moment when you cant take your hands off cause you love her but your warmth is killing her'],
 	['we drowning','we-drowning','i drown u, u drown me, we a happy family'],
 	['not real','not-real','be there to hold  me as  i lean over  the  edge of the  void,  just plz make  sure i  dont fall in'],
 	['dont play','dont-play',' i cant make you leave, but i can show you the door'],
