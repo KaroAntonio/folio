@@ -3,7 +3,7 @@ var splash = "#consider-growth";  //splash id is repo name
 
 // label , repo , alt
 var projects = [
-	['github ver','asdf','asdf'],
+	['GITHUB VER','asdf','asdf'],
 	['consider: growth','consider-growth','if you stand still long enough, the lichen of the forest will engulf you'],
 	['intimate me','an-intimate-moment-with-a-block-of-ice','that moment when you cant take your hands off cause you love her but your warmth is killing her'],
 //	['we drowning','we-drowning','i drown u, u drown me, we a happy family'],
