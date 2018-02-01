@@ -4,7 +4,7 @@ var splash = "#remember-ocean";  //splash id is repo name
 // label , repo , alt
 var projects = [
 	['remember ocean','remember-ocean','how many times a day do you think of water?'],
-	['probabilistic waves','productogyser','you be the sand'],
+	['probabilistic waves','mutually-assured-growth','you be the sand'],
 	['consider: growth','consider-growth','if you stand still long enough, the lichen of the forest will engulf you'],
 	['intimate me','an-intimate-moment-with-a-block-of-ice','that moment when you cant take your hands off cause you love her but your warmth is killing her'],
 //	['we drowning','we-drowning','i drown u, u drown me, we a happy family'],
