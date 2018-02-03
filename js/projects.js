@@ -1,8 +1,12 @@
 // central resource to pull projects from
-var splash = "#remember-ocean";  //splash id is repo name
+var splash = "#more";  //splash id is repo name
 
 // label , repo , alt
 var projects = [
+	['more','more','more space / more love'],
+	['spectra','spectra','and everything in between'],
+	['nutrition-facts','nutrition-facts','know what youre made of'],
+	['searching','searching','deep space and deep net have twin topographies'],
 	['remember ocean','remember-ocean','how many times a day do you think of water?'],
 	['probabilistic waves','mutually-assured-growth','you be the sand'],
 	['consider: growth','consider-growth','if you stand still long enough, the lichen of the forest will engulf you'],
