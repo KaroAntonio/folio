@@ -1,3 +1,5 @@
+# push master to gh-pages which in effect publishes the site
+
 git checkout --orphan gh-pages
 git add --all
 git commit -m 'init'
