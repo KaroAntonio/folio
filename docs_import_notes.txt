@@ -1,0 +1,1 @@
+1. I updated class .c9 to have a margin-bottom of 5pt which I believe overrides the heading h3 default
