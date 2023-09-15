@@ -1,0 +1,1 @@
+1. Update the class for the subsection header to set margin-bottom to 5pt (class name is variable)
